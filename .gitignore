@@ -1,2 +1,16 @@
 
 .DS_Store
+
+Debug/subdir.mk
+
+Debug/objects.mk
+
+Debug/makefile
+
+.cproject
+
+.project
+
+Debug/Ppmrc.d
+
+Debug/sources.mk
