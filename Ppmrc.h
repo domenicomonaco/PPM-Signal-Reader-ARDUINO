@@ -15,7 +15,7 @@
 
 class ChannelStat {
 public:
-    void init();
+	void init();
 };
 
 class Channel {
@@ -29,10 +29,10 @@ public:
 	void readSignal();
 
 	void configChannel();
-        
-        void detectVersus();
-        
-        int getVersus();
+
+	void detectVersus();
+
+	int getVersus();
 
 private:
 	int channelpin;
@@ -43,12 +43,12 @@ private:
 
 	unsigned long mininitialsignal;
 	unsigned long maxinitialsignal;
-        int sensibility;
-        
-        int versus;
-        
-        int positionsteer;
-        
+	int sensibility;
+
+	int versus;
+
+	int positionsteer;
+
 	ChannelStat Statistic;
 };
 
