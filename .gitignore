@@ -14,3 +14,5 @@ Debug/makefile
 Debug/Ppmrc.d
 
 Debug/sources.mk
+
+.Ppmrc.o.swp
