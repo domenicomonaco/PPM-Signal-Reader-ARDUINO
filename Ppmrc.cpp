@@ -8,8 +8,10 @@
 //  License: GNU v2
 //
 
-#include "ppmrc.h"
+#include "Ppmrc.h"
 #include "WProgram.h"
+#include <Statistic.h>
+
 
 void ChannelStat::init() {
 }
@@ -26,39 +28,44 @@ void Channel::init(int stat, int inv, int pin) {
 		invert = inv;
 	//Enable Statics for current Channel
 	if (stat) {
-		Statistic = ChannelStat();
-		Statistic.init();
+		ChannelStatistic =  Statistic();
+		PositionStatistic = Statistic();
 	}
 
 	//initial value
-	initialsignal = pulseIn(channelpin, HIGH, 20000);
+	initialsignal = pulseIn(channelpin, HIGH);
 
 	//
 	unsigned long signalScan[100];
 	int i;
 
-	for (i = 0; i < 100; i++) {
-		signalScan[i] = pulseIn(channelpin, HIGH, 20000);
+	for (i = 0; i < 1000; i++) {
+		readSignal();
+		ChannelStatistic.add(signal);
+		PositionStatistic.add(getPosition());
 	}
 
-	for (i = 0; i < 100 - 1; i++) {
-		mininitialsignal = min(signalScan[i], signalScan[i + 1]);
-		maxinitialsignal = max(signalScan[i], signalScan[i + 1]);
-	}
+	mininitialsignal = ChannelStatistic.minimum();
+	maxinitialsignal = ChannelStatistic.maximum();
 
 }
 
 int Channel::getPosition() {
 
 	if (versus == 1) {
-		positionsteer = signal - initialsignal;
-	} else {
-		positionsteer = initialsignal - signal;
+		position = initialsignal - signal;
+	} else if(versus == -1){
+		position = signal - initialsignal;
+	}else{
+		position = 0;
 	}
-	positionsteer = positionsteer * STEER_PROP; // convert to 0-100 range
-	constrain(positionsteer, 0, 100); //just in case
 
-	return positionsteer;
+	//position = map(position, 0, , 0, 100);
+	//position = position * STEER_PROP; // convert to 0-100 range
+
+	//constrain(position, 0, 100); //just in case
+
+	return (position);
 }
 
 unsigned long Channel::getSignal() {
@@ -70,6 +77,8 @@ unsigned long Channel::getSignal() {
  **/
 void Channel::readSignal() {
 	signal = pulseIn(channelpin, HIGH, 20000);
+
+	saveStats();
 	detectVersus();
 }
 
@@ -88,6 +97,13 @@ void Channel::detectVersus() {
 	}
 
 }
+
 int Channel::getVersus() {
 	return versus;
+}
+
+void Channel::saveStats(){
+	ChannelStatistic.add(signal);
+	PositionStatistic.add(position);
+
 }

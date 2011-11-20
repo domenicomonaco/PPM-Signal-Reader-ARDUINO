@@ -10,8 +10,9 @@
 
 #ifndef Ppmrc_h
 #define Ppmrc_h
+#include <Statistic.h>
 
-#define STEER_PROP 0.15
+#define STEER_PROP 0.5
 
 class ChannelStat {
 public:
@@ -34,6 +35,11 @@ public:
 
 	int getVersus();
 
+	void saveStats();
+
+	Statistic PositionStatistic;
+	Statistic ChannelStatistic;
+
 private:
 	int channelpin;
 	int invert;
@@ -47,9 +53,9 @@ private:
 
 	int versus;
 
-	int positionsteer;
+	int position;
 
-	ChannelStat Statistic;
+
 };
 
 #endif
