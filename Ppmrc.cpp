@@ -12,7 +12,6 @@
 #include "WProgram.h"
 #include <Statistic.h>
 
-
 void ChannelStat::init() {
 }
 
@@ -28,21 +27,24 @@ void Channel::init(int stat, int inv, int pin) {
 		invert = inv;
 	//Enable Statics for current Channel
 	if (stat) {
-		ChannelStatistic =  Statistic();
+
+		ChannelStatistic = Statistic();
+		ChannelStatistic.clear();
 		PositionStatistic = Statistic();
+		PositionStatistic.clear();
 	}
 
 	//initial value
 	initialsignal = pulseIn(channelpin, HIGH);
 
-	//
-	unsigned long signalScan[100];
-	int i;
+	delay(2000);
 
-	for (i = 0; i < 1000; i++) {
+	int i;
+	for (i = 0; i < 100; i++) {
 		readSignal();
+		detectVersus();
+
 		ChannelStatistic.add(signal);
-		PositionStatistic.add(getPosition());
 	}
 
 	mininitialsignal = ChannelStatistic.minimum();
@@ -51,20 +53,13 @@ void Channel::init(int stat, int inv, int pin) {
 }
 
 int Channel::getPosition() {
-
 	if (versus == 1) {
 		position = initialsignal - signal;
-	} else if(versus == -1){
+	} else if (versus == -1) {
 		position = signal - initialsignal;
-	}else{
+	} else {
 		position = 0;
 	}
-
-	//position = map(position, 0, , 0, 100);
-	//position = position * STEER_PROP; // convert to 0-100 range
-
-	//constrain(position, 0, 100); //just in case
-
 	return (position);
 }
 
@@ -102,8 +97,7 @@ int Channel::getVersus() {
 	return versus;
 }
 
-void Channel::saveStats(){
+void Channel::saveStats() {
 	ChannelStatistic.add(signal);
 	PositionStatistic.add(position);
-
 }

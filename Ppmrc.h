@@ -53,7 +53,7 @@ private:
 
 	int versus;
 
-	int position;
+	unsigned int position;
 
 
 };
