@@ -1,3 +1,13 @@
+//
+//  ReadSignalFromRC.pde
+//  Example for Ppmrc Arduino Library
+//
+//  Created by Domenico Monaco on 20/11/2011
+//  Copyright 2011 Domenico Monaco - domenico.monaco@kiuz.it
+//
+//  License: GNU v2
+//
+
 #include <Ppmrc.h>
 
 Channel channel1;
