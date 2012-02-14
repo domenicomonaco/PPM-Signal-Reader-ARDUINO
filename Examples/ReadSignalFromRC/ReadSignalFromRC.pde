@@ -1,6 +1,6 @@
 //
 //  ReadSignalFromRC.pde
-//  Example for Ppmrc Arduino Library
+//  Example for PPMrcIn Arduino Library
 //
 //  Created by Domenico Monaco on 20/11/2011
 //  Copyright 2011 Domenico Monaco - domenico.monaco@kiuz.it
@@ -8,14 +8,18 @@
 //  License: GNU v2
 //
 
-#include <Ppmrc.h>
 
+#include <PPMrcIn.h>
+// must be install into libraries http://github.com/kiuz/Arduino-Statistic-Library
+#include <Statistic.h> 
+
+//init a Channel class to store and manage CannelX form reciever
 Channel channel1;
 
 void setup() {
 
   Serial.begin(9600);
-  
+ 
   Serial.println("Ready");
 
   pinMode (13, INPUT);
