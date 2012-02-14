@@ -42,22 +42,23 @@ void Channel::init(int stat, int inv, int pin) {
     
 }
 
-int Channel::getPosition() {
-    
+
+void Channel::detectPosition() {
     //convert Microseconds Pulse into angle 0->180, where 90 are middle pos
-    position = map(signal,mininitialsignal,maxinitialsignal,0,180);
-    
 	/*if (versus == 1) {
-		position = initialsignal - signal;
-    } else if (versus == -1) {
-		
-        position = signal - initialsignal;
-	} else {
-		
-        position = 0;
-	}*/
-    
-	return (position);
+     position = initialsignal - signal;
+     } else if (versus == -1) {
+     
+     position = signal - initialsignal;
+     } else {
+     
+     position = 0;
+     }*/
+    position = map(signal,mininitialsignal,maxinitialsignal,0,180);
+}
+
+int Channel::getPosition() {
+    return (position);
 }
 
 /**

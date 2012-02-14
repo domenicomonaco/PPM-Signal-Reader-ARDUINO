@@ -24,7 +24,7 @@
 class Channel {
 public:
     
-	void init(int stat, int inv, int pin);
+	void init(int inv, int pin);
     
 	unsigned long getSignal();
     
@@ -38,7 +38,6 @@ private:
     void configChannel();
     void detectVersus();
     void detectPosition();
-    
     void saveStats();
     
     Statistic PositionStatistic;
