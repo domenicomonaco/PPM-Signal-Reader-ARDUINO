@@ -8,38 +8,29 @@
 //  License: GNU v2
 //
 
-
-#include <PPMrcIn.h>
+#include <ppmrcin.h>
 // must be install into libraries http://github.com/kiuz/Arduino-Statistic-Library
-#include <Statistic.h> 
+#include <Statistic.h>
 
 //init a Channel class to store and manage CannelX form reciever
 Channel channel1;
 
 void setup() {
-
   Serial.begin(9600);
  
-  Serial.println("Ready");
+  Serial.println("Ready:");
 
   pinMode (13, INPUT);
-  channel1.init(1,1,13);
+  channel1.init(1,13);
 }
 
 void loop() {
-  delay(500);
+  delay(20);
   
   channel1.readSignal();
-  channel1.detectVersus();
   
   Serial.println(channel1.getSignal());
   Serial.println(channel1.getPosition());
-  Serial.println(channel1. getVersus());
-  Serial.println("  ");
+  Serial.println(channel1.getVersus());
+  Serial.println(" ");
 }
-
-
-
-
-
-

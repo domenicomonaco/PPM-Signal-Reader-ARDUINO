@@ -14,7 +14,7 @@
 
 #include <Statistic.h>
 
-void Channel::init(int stat, int inv, int pin) {
+void Channel::init(int inv, int pin) {
     
     //sensibility are used to approximate Time Pulse
     //usefull on Middle position where there variation of value
@@ -28,14 +28,13 @@ void Channel::init(int stat, int inv, int pin) {
 	if (inv != 1)
 		invert = inv;
     
-	//Enable Statics for current Channel, if are requsted functionality
-	if (stat) {
+	//init Statics for current Channel
 		ChannelStatistic = Statistic();
 		ChannelStatistic.clear();
         
 		PositionStatistic = Statistic();
 		PositionStatistic.clear();
-    }
+
 
     //start configuration of Channel clas with output of Reciever
     configChannel();
@@ -54,7 +53,7 @@ void Channel::detectPosition() {
      
      position = 0;
      }*/
-    position = map(signal,mininitialsignal,maxinitialsignal,0,180);
+    position = map(signal,mininitialsignal,maxinitialsignal,ANGLERANGE_MIN,ANGLERANGE_MAX);
 }
 
 int Channel::getPosition() {
