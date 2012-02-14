@@ -8,52 +8,44 @@
 //  License: GNU v2
 //
 
-#include "PPMrcIn.h"
 #include "WProgram.h"
-#include <Statistic.h>
 
-void ChannelStat::init() {
-}
+#include "ppmrcin.h"
+
+#include <Statistic.h>
 
 void Channel::init(int stat, int inv, int pin) {
     
-	sensibility = 10;
+    //sensibility are used to approximate Time Pulse
+    //usefull on Middle position where there variation of value
+	sensibility = ERROR;
     
 	//Save Ping of channel
 	if (pin)
 		channelpin = pin; // channelpin[1] = 7, 7 is pin to read Channel 1
     
+    //if option inverted are enabled, store config into class Channel
 	if (inv != 1)
 		invert = inv;
-	//Enable Statics for current Channel
+    
+	//Enable Statics for current Channel, if are requsted functionality
 	if (stat) {
-        
 		ChannelStatistic = Statistic();
 		ChannelStatistic.clear();
+        
 		PositionStatistic = Statistic();
 		PositionStatistic.clear();
     }
-	//initial value
-	initialsignal = pulseIn(channelpin, HIGH);
-    
-	delay(2000);
-    
-	int i;
-	for (i = 0; i < 100; i++) {
-		readSignal();
-		detectVersus();
-        
-		ChannelStatistic.add(signal);
-	}
-    
-	mininitialsignal = ChannelStatistic.minimum();
-	maxinitialsignal = ChannelStatistic.maximum();
+
+    //start configuration of Channel clas with output of Reciever
+    configChannel();
     
 }
 
 int Channel::getPosition() {
     
-    position = map(signal,mininitialsignal,maxinitialsignal,0,90);
+    //convert Microseconds Pulse into angle 0->180, where 90 are middle pos
+    position = map(signal,mininitialsignal,maxinitialsignal,0,180);
     
 	/*if (versus == 1) {
 		position = initialsignal - signal;
@@ -68,6 +60,9 @@ int Channel::getPosition() {
 	return (position);
 }
 
+/**
+ * Signal are Microseconds
+ **/
 unsigned long Channel::getSignal() {
     return signal;
 }
@@ -83,10 +78,28 @@ void Channel::readSignal() {
 }
 
 void Channel::configChannel() {
+    //initial value
+	initialsignal = pulseIn(channelpin, HIGH);
+    
+	delay(2000);
+    
+    //Import first
+	int i;
+	for (i = 0; i < 100; i++) {
+		readSignal();
+		detectVersus();
+        
+		ChannelStatistic.add(signal);
+	}
+    
+	mininitialsignal = ChannelStatistic.minimum();
+	maxinitialsignal = ChannelStatistic.maximum();
     
 }
 
 void Channel::detectVersus() {
+    // There are usefull "sensibility" where into inifluent changes of PulseIN
+    // are ignored to canghe versus
     if (signal >= mininitialsignal - sensibility 
         && signal <= maxinitialsignal + sensibility) {
 		versus = 0;
@@ -95,7 +108,6 @@ void Channel::detectVersus() {
 	} else if (signal > maxinitialsignal + sensibility) {
 		versus = -1;
 	}
-    
 }
 
 int Channel::getVersus() {

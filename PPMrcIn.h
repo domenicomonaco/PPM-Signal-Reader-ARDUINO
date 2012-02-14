@@ -8,54 +8,69 @@
 //  License: GNU v2
 //
 
-#ifndef Ppmrc_h
-#define Ppmrc_h
+#ifndef PpmrcIn_h
+#define PpmrcIn_h
+
+#include "WProgram.h"
 #include <Statistic.h>
 
-#define STEER_PROP 0.5
+//Used to approximate PulseIn with errors
+#define ERROR 10
 
-class ChannelStat {
-public:
-	void init();
-};
+//Angle of range conversion
+#define ANGLERANGE_MIN 0
+#define ANGLERANGE_MAX 180
 
 class Channel {
 public:
+    
 	void init(int stat, int inv, int pin);
-
-	int getPosition();
-
+    
+    void configChannel();
+    
 	unsigned long getSignal();
-
-	void readSignal();
-
-	void configChannel();
-
-	void detectVersus();
-
+    void readSignal();
+	
+    void detectVersus();
 	int getVersus();
-
-	void saveStats();
-
-	Statistic PositionStatistic;
-	Statistic ChannelStatistic;
+    
+    int getPosition();
+	
+    void saveStats();
 
 private:
+    Statistic PositionStatistic;
+	Statistic ChannelStatistic;
+    
+    //pin where are connected rc out
 	int channelpin;
+    
+    //configuration
+        //Invert output
 	int invert;
-
-	unsigned long signal;
-	unsigned long initialsignal;
-
-	unsigned long mininitialsignal;
-	unsigned long maxinitialsignal;
+    
+        //Sensibility of reading pulseIn
 	int sensibility;
+    
+        //middle middle signal recieved
+	unsigned long initialsignal;
+        //min value signal recievd
+	unsigned long mininitialsignal;
+        //max value signal recieved
+	unsigned long maxinitialsignal;
 
+    //last values reading
+        //microsecons of pulseIn
+    unsigned long signal;
+    
+        //versus of command respect of middle
+        //0: Middle
+        //1 and -1 at extreme
 	int versus;
-
+    
+        // Angle conversion of PulseIns
+        // Default are 0-180
 	unsigned int position;
-
-
 };
 
 #endif
