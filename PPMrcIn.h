@@ -26,19 +26,21 @@ public:
     
 	void init(int stat, int inv, int pin);
     
-    void configChannel();
-    
 	unsigned long getSignal();
+    
     void readSignal();
-	
-    void detectVersus();
+
 	int getVersus();
     
     int getPosition();
-	
-    void saveStats();
 
 private:
+    void configChannel();
+    void detectVersus();
+    void detectPosition();
+    
+    void saveStats();
+    
     Statistic PositionStatistic;
 	Statistic ChannelStatistic;
     
