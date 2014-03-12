@@ -12,7 +12,7 @@
 
 #include "ppmrcin.h"
 
-#include <Statistic.h>
+#include <lib/Statistic.h>
 
 void Channel::init(int inv, int pin) {
     

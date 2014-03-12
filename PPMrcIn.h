@@ -12,7 +12,7 @@
 #define PpmrcIn_h
 
 #include "WProgram.h"
-#include <Statistic.h>
+#include <lib/Statistic.h>
 
 //Used to approximate PulseIn with errors
 #define ERROR 10
