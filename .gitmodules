@@ -1,3 +1,6 @@
 [submodule "lib"]
 	path = lib
 	url = https://kiuz@github.com/kiuz/Arduino-Statistic-Library.git
+[submodule "Statistic"]
+	path = Statistic
+	url = https://github.com/kiuz/Arduino-Statistic-Library.git
