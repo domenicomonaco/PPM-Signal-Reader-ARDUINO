@@ -1,11 +1,16 @@
-# PPM Radio Control In
+#PPM Rardio Controller Signal Reader#
+
+##Intro##
 Simple library to manage output of Radio Controll reciever
 
 * Author: Domenico Monaco
 * e-mail: domenico.monaco AT kiuz.it
 * Site: http://monaco.kiuz.it
 
-## Thanks ##
+## Description
+This library help you reading Pluse-In from Radio Controll reciever of classical RC Car or other Devices.
+
+## Special Thanks ##
 * Jeff McAlvay, jeff@jeffsinventions.com - <http://jeffsinventions.com/autonomous-car-manual-override/>
 	* thanks for some little feedback and implementation
 
@@ -14,9 +19,6 @@ Simple library to manage output of Radio Controll reciever
 http://github.com/kiuz/Arduino-Statistic-Library
 
 [NEW] Now I've included Arduino-Statistic-Library as Sub-repositories, you can follow Installation Section in this file.
-
-## Description
-This library help you reading Pluse-In from Radio Controll reciever of classical RC Car or other Devices.
 
 ## Changes ##
 
