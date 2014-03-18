@@ -11,8 +11,13 @@
 #ifndef PpmrcIn_h
 #define PpmrcIn_h
 
-#include "WProgram.h"
-#include <lib/Statistic.h>
+#if defined(ARDUINO) && ARDUINO >= 100
+  #include "Arduino.h"
+  #else
+  #include "WProgram.h"
+#endif
+
+#include <Statistic.h>
 
 //Used to approximate PulseIn with errors
 #define ERROR 10

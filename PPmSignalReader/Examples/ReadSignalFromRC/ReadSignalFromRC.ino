@@ -8,8 +8,10 @@
 //  License: GNU v2
 //
 
-#include <ppmrcin.h>
+#include <PPMrcIn.h>
+
 // must be install into libraries http://github.com/kiuz/Arduino-Statistic-Library
+
 #include <Statistic.h>
 
 //init a Channel class to store and manage CannelX form reciever

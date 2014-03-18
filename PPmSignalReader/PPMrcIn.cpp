@@ -8,11 +8,14 @@
 //  License: GNU v2
 //
 
-#include "WProgram.h"
+#include "PPMrcIn.h"
+#if defined(ARDUINO) && ARDUINO >= 100
+  #include "Arduino.h"
+  #else
+  #include "WProgram.h"
+#endif
 
-#include "ppmrcin.h"
-
-#include <lib/Statistic.h>
+#include <Statistic.h>
 
 void Channel::init(int inv, int pin) {
     

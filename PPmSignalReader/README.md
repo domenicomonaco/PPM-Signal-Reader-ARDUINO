@@ -13,3 +13,8 @@ http://github.com/kiuz/Arduino-Statistic-Library
 
 ## Description
 This library help you reading Pluse-In from Radio Controll reciever of classical RC Car or other Devices.
+
+## Changes ##
+
+* renamed #include Wprogram.h into Arduino.h 
+	* http://arduino.cc/en/Main/ReleaseNotes#.UyizMq15OtU
