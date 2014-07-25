@@ -1,14 +1,14 @@
-#PPM Rardio Controller Signal Reader#
+#PPM Radio Control Signal Reader#
 
 ##Intro##
-Simple library to manage output of Radio Controll reciever
+Simple library to manage output of Radio Control receiver
 
 * Author: Domenico Monaco
 * e-mail: domenico.monaco AT kiuz.it
 * Site: http://monaco.kiuz.it
 
 ## Description
-This library help you reading Pluse-In from Radio Controll reciever of classical RC Car or other Devices.
+This library allows you to read Pulse Position Modulation (PPM) signals from Radio Control receiver of classical RC Car or other Devices.
 
 ## Special Thanks ##
 * Jeff McAlvay, jeff@jeffsinventions.com - <http://jeffsinventions.com/autonomous-car-manual-override/>
@@ -31,5 +31,5 @@ http://github.com/kiuz/Arduino-Statistic-Library
 
 
 ## Installation ##
-* After cloning repo you must copy "PPmSignalReader" and "Statistic" into "Arduino/libraries/" folder
+* After cloning the repository you must copy "PPmSignalReader" and "Statistic" into "Arduino/libraries/" folder
 * Open or re-Open Arduino IDE and now you can use PPmSignalReader library or open Example form menu
