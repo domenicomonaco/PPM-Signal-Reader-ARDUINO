@@ -11,6 +11,7 @@ Simple library to manage output of Radio Control receiver
 This library allows you to read Pulse Position Modulation (PPM) signals from Radio Control receiver of classical RC Car or other Devices.
 
 ## Special Thanks ##
+* [justy](https://github.com/justy), justy256@gmail.com
 * Jeff McAlvay, jeff@jeffsinventions.com - <http://jeffsinventions.com/autonomous-car-manual-override/>
 	* thanks for some little feedback and implementation
 
@@ -28,7 +29,6 @@ http://github.com/kiuz/Arduino-Statistic-Library
 		* http://arduino.cc/en/Main/ReleaseNotes#.UyizMq15OtU
 	* fixed ppmrcin.h into PPMrcIn.h
 	* changed folder tree to best use into Arduino libraries
-
 
 ## Installation ##
 * After cloning the repository you must copy "PPmSignalReader" and "Statistic" into "Arduino/libraries/" folder
