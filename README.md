@@ -1,6 +1,6 @@
 #PPM Radio Control Signal Reader#
 
-[![Tested](http://img.shields.io/badge/Tested-ok-brightgreen.svg)](https://github.com/kiuz/PPM-Signal-Reader-ARDUINO<)
+[![Tested](http://img.shields.io/badge/Tested-ok-brightgreen.svg)](https://github.com/kiuz/PPM-Signal-Reader-ARDUINO)
 [![GPL V2 License](http://img.shields.io/badge/License-GPLv2-red.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
 [![Gratipay Badge](http://img.shields.io/badge/Gratipay-kiuzhack-green.svg)](https://gratipay.com/kiuzhack)
 
