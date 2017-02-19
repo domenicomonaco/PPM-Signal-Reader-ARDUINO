@@ -15,6 +15,7 @@ Simple library to manage output of Radio Control receiver
 This library allows you to read Pulse Position Modulation (PPM) signals from Radio Control receiver of classical RC Car or other Devices.
 
 ## Special Thanks ##
+* [flavbleach](https://github.com/flavbleach)
 * [justy](https://github.com/justy), justy256@gmail.com
 * Jeff McAlvay, jeff@jeffsinventions.com - <http://jeffsinventions.com/autonomous-car-manual-override/>
 	* thanks for some little feedback and implementation
