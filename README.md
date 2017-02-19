@@ -25,6 +25,10 @@ http://github.com/kiuz/Arduino-Statistic-Library
 
 [NEW] Now I've included Arduino-Statistic-Library as Sub-repositories, you can follow Installation Section in this file.
 
+## TESTED ARDUINO LIBRARY ##
+* 1.0.6 tested and work (thanks to [flavbleach](https://github.com/flavbleach))
+* 1.8.* does not want to work properly (thanks to [flavbleach](https://github.com/flavbleach))
+
 ## Changes ##
 
 * 0.1 - initial 
