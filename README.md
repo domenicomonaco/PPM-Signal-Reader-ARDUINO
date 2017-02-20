@@ -27,11 +27,13 @@ http://github.com/kiuz/Arduino-Statistic-Library
 [NEW] Now I've included Arduino-Statistic-Library as Sub-repositories, you can follow Installation Section in this file.
 
 ## TESTED ARDUINO LIBRARY ##
-* 1.0.6 tested and work (thanks to [flavbleach](https://github.com/flavbleach))
-* 1.8.* does not want to work properly (thanks to [flavbleach](https://github.com/flavbleach))
+* 1.0.6 [![Tested](http://img.shields.io/badge/Tested-ok-brightgreen.svg)](https://github.com/kiuz/PPM-Signal-Reader-ARDUINO) (thanks to [flavbleach](https://github.com/flavbleach))
+* 1.8.* [![Tested](http://img.shields.io/badge/Tested-No-brightred.svg)](https://github.com/kiuz/PPM-Signal-Reader-ARDUINO) (thanks to [flavbleach](https://github.com/flavbleach))
+
+## OPEN ISSUE ##
+ * #4 and #5,"Compatibility with Arduino IDE 1.8" where seems doesn't work with over 3 pins input.
 
 ## Changes ##
-
 * 0.1 - initial 
 * 0.2 - 
 	* fixed #include Wprogram.h into Arduino.h
