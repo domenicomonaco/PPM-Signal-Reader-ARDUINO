@@ -8,8 +8,8 @@
 Simple library to manage output of Radio Control receiver
 
 * Author: Domenico Monaco
-* e-mail: domenico.monaco AT kiuz.it
-* Site: http://monaco.kiuz.it
+* e-mail: domenico@tecnologieperpersone.it
+* Site: https://domenicomonaco.it
 
 ## Description
 This library allows you to read Pulse Position Modulation (PPM) signals from Radio Control receiver of classical RC Car or other Devices.
